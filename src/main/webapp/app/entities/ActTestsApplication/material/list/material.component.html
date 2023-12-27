@@ -1,0 +1,102 @@
+<div>
+  <h2 id="page-heading" data-cy="MaterialHeading">
+    <span jhiTranslate="actTestsApplicationApp.actTestsApplicationMaterial.home.title">Materials</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="actTestsApplicationApp.actTestsApplicationMaterial.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-material"
+        [routerLink]="['/acttestsapplication/material/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="actTestsApplicationApp.actTestsApplicationMaterial.home.createLabel">Create a new Material</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (materials?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="actTestsApplicationApp.actTestsApplicationMaterial.home.notFound">No Materials found</span>
+    </div>
+  }
+
+  @if (materials && materials.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="topic">
+              <div class="d-flex">
+                <span jhiTranslate="actTestsApplicationApp.actTestsApplicationMaterial.topic">Topic</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="link">
+              <div class="d-flex">
+                <span jhiTranslate="actTestsApplicationApp.actTestsApplicationMaterial.link">Link</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (material of materials; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/acttestsapplication/material', material.id, 'view']">{{ material.id }}</a>
+              </td>
+              <td>{{ material.topic }}</td>
+              <td>{{ material.link }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/acttestsapplication/material', material.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/acttestsapplication/material', material.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(material)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

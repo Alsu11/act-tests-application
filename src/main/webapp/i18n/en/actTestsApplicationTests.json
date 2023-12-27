@@ -1,0 +1,25 @@
+{
+  "actTestsApplicationApp": {
+    "actTestsApplicationTests": {
+      "home": {
+        "title": "Tests",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Tests",
+        "createOrEditLabel": "Create or edit a Tests",
+        "notFound": "No Tests found"
+      },
+      "created": "A new Tests is created with identifier {{ param }}",
+      "updated": "A Tests is updated with identifier {{ param }}",
+      "deleted": "A Tests is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tests {{ id }}?"
+      },
+      "detail": {
+        "title": "Tests"
+      },
+      "id": "ID",
+      "subject": "Subject",
+      "materialId": "Material Id"
+    }
+  }
+}

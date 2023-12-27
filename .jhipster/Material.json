@@ -1,0 +1,24 @@
+{
+  "annotations": {
+    "changelogDate": "20231227183013"
+  },
+  "applications": "*",
+  "clientRootFolder": "ActTestsApplication",
+  "databaseType": "sql",
+  "entityTableName": "material",
+  "fields": [
+    {
+      "fieldName": "topic",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "link",
+      "fieldType": "String"
+    }
+  ],
+  "microserviceName": "ActTestsApplication",
+  "name": "Material",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

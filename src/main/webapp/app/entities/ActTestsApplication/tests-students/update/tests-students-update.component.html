@@ -1,0 +1,85 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tests-students-heading"
+        data-cy="TestsStudentsCreateUpdateHeading"
+        jhiTranslate="actTestsApplicationApp.actTestsApplicationTestsStudents.home.createOrEditLabel"
+      >
+        Create or edit a Tests Students
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="actTestsApplicationApp.actTestsApplicationTestsStudents.result" for="field_result"
+            >Result</label
+          >
+          <input type="text" class="form-control" name="result" id="field_result" data-cy="result" formControlName="result" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="actTestsApplicationApp.actTestsApplicationTestsStudents.studentId" for="field_studentId"
+            >Student Id</label
+          >
+          <select
+            class="form-control"
+            id="field_studentId"
+            data-cy="studentId"
+            name="studentId"
+            formControlName="studentId"
+            [compareWith]="compareStudent"
+          >
+            <option [ngValue]="null"></option>
+            @for (studentOption of studentsSharedCollection; track $index) {
+              <option [ngValue]="studentOption">{{ studentOption.id }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="actTestsApplicationApp.actTestsApplicationTestsStudents.testId" for="field_testId"
+            >Test Id</label
+          >
+          <select
+            class="form-control"
+            id="field_testId"
+            data-cy="testId"
+            name="testId"
+            formControlName="testId"
+            [compareWith]="compareTests"
+          >
+            <option [ngValue]="null"></option>
+            @for (testsOption of testsSharedCollection; track $index) {
+              <option [ngValue]="testsOption">{{ testsOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

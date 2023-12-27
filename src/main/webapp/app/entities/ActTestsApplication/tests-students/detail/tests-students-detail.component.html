@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (testsStudents) {
+      <div>
+        <h2 data-cy="testsStudentsDetailsHeading">
+          <span jhiTranslate="actTestsApplicationApp.actTestsApplicationTestsStudents.detail.title">Tests Students</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ testsStudents.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="actTestsApplicationApp.actTestsApplicationTestsStudents.result">Result</span></dt>
+          <dd>
+            <span>{{ testsStudents.result }}</span>
+          </dd>
+          <dt><span jhiTranslate="actTestsApplicationApp.actTestsApplicationTestsStudents.studentId">Student Id</span></dt>
+          <dd>
+            @if (testsStudents.studentId) {
+              <div>
+                <a [routerLink]="['/student', testsStudents.studentId.id, 'view']">{{ testsStudents.studentId.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="actTestsApplicationApp.actTestsApplicationTestsStudents.testId">Test Id</span></dt>
+          <dd>
+            @if (testsStudents.testId) {
+              <div>
+                <a [routerLink]="['/tests', testsStudents.testId.id, 'view']">{{ testsStudents.testId.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/acttestsapplication/tests-students', testsStudents.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
