@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (material) {
+      <div>
+        <h2 data-cy="materialDetailsHeading">
+          <span jhiTranslate="actTestsApplicationApp.actTestsApplicationMaterial.detail.title">Material</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ material.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="actTestsApplicationApp.actTestsApplicationMaterial.topic">Topic</span></dt>
+          <dd>
+            <span>{{ material.topic }}</span>
+          </dd>
+          <dt><span jhiTranslate="actTestsApplicationApp.actTestsApplicationMaterial.link">Link</span></dt>
+          <dd>
+            <span>{{ material.link }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/acttestsapplication/material', material.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

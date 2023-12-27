@@ -1,0 +1,33 @@
+{
+  "annotations": {
+    "changelogDate": "20231227183413"
+  },
+  "applications": "*",
+  "clientRootFolder": "ActTestsApplication",
+  "databaseType": "sql",
+  "entityTableName": "tests_students",
+  "fields": [
+    {
+      "fieldName": "result",
+      "fieldType": "String"
+    }
+  ],
+  "microserviceName": "ActTestsApplication",
+  "name": "TestsStudents",
+  "relationships": [
+    {
+      "otherEntityName": "student",
+      "relationshipName": "studentId",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "tests",
+      "relationshipName": "testId",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

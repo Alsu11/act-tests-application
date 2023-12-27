@@ -1,0 +1,35 @@
+{
+  "annotations": {
+    "changelogDate": "20231227183313"
+  },
+  "applications": "*",
+  "clientRootFolder": "ActTestsApplication",
+  "databaseType": "sql",
+  "entityTableName": "question",
+  "fields": [
+    {
+      "fieldName": "question",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "answers",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "points",
+      "fieldType": "String"
+    }
+  ],
+  "microserviceName": "ActTestsApplication",
+  "name": "Question",
+  "relationships": [
+    {
+      "otherEntityName": "tests",
+      "relationshipName": "testId",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

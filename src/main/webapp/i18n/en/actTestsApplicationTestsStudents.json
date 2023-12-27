@@ -1,0 +1,26 @@
+{
+  "actTestsApplicationApp": {
+    "actTestsApplicationTestsStudents": {
+      "home": {
+        "title": "Tests Students",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Tests Students",
+        "createOrEditLabel": "Create or edit a Tests Students",
+        "notFound": "No Tests Students found"
+      },
+      "created": "A new Tests Students is created with identifier {{ param }}",
+      "updated": "A Tests Students is updated with identifier {{ param }}",
+      "deleted": "A Tests Students is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tests Students {{ id }}?"
+      },
+      "detail": {
+        "title": "Tests Students"
+      },
+      "id": "ID",
+      "result": "Result",
+      "studentId": "Student Id",
+      "testId": "Test Id"
+    }
+  }
+}
