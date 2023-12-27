@@ -1,0 +1,33 @@
+entity Material {
+	topic String,
+    link String
+}
+
+entity Student {
+	firstName String,
+    lastName String
+}
+
+entity Tests {
+	subject String
+}
+
+entity Question {
+    question String,
+    answers String,
+    points String
+}
+
+entity TestsStudents {
+	result String
+}
+
+
+relationship ManyToOne {
+	Question{testId} to Tests,
+    Tests{materialId} to Material,
+    TestsStudents{studentId} to Student,
+	TestsStudents{testId} to Tests
+}
+
+service all with serviceImpl
